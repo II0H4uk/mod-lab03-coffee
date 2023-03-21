@@ -1,5 +1,4 @@
 // Copyright 2022 UNN-IASR
-
 #pragma once
 #include <string>
 #include <iostream>
@@ -7,24 +6,21 @@
 using std::string;
 using std::vector;
 
-namespace UnitTests {
-
     enum class STATES {
         OFF,
         WAIT,
         ACCEPT,
         CHECK,
-        COOK
-    };
-
+        COOK };
+    
     class Automata {
-    private:
+     private:
         int coins;
         vector<string> menu;
         vector<int> prices;
         STATES state;
 
-    public:
+     public:
         Automata();
 
         void on();
@@ -38,4 +34,3 @@ namespace UnitTests {
         void cook();
         void finish();
     };
-}

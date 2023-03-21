@@ -11,7 +11,7 @@ namespace UnitTests {
 
     Automata::Automata() {
         coins = 0;
-        menu = { "Òóðåöêèé êîôå", "Àìåðèêàíî", "Ýñïðåññî", "Ëààòòå", "Êàïó÷èíî", "Ìàêêèàòî", "Ôëýò óàéò", "Ìîêêà", "Ôðåí÷ ïðåññ", "Àéðèø êîôå" };
+        menu = { "Турецкий кофе", "Американо", "Эспрессо", "Лаатте", "Капучино", "Маккиато", "Флэт уайт", "Мокка", "Френч пресс", "Айриш кофе" };
         prices = { 100, 150, 200, 250, 300, 350, 400, 450, 500, 550 };
         state = STATES::OFF;
     }
@@ -19,14 +19,14 @@ namespace UnitTests {
     void Automata::on() {
         if (state == STATES::OFF) {
             state = STATES::WAIT;
-            cout << "Êîôåìàøèíà âêëþ÷åíà...\n";
+            cout << "Кофемашина включена...\n";
         }
     }
 
     void Automata::off() {
         if (state == STATES::WAIT) {
             state = STATES::OFF;
-            cout << "Êîôåìàøèíà âûêëþ÷åíà...\n";
+            cout << "Кофемашина выключена...\n";
         }
     }
 
@@ -57,13 +57,13 @@ namespace UnitTests {
 
     void Automata::check(int type) {
         if (coins < prices[type - 1] && state == STATES::CHECK) {
-            std::cout << "\nÍåäîñòàòî÷íî ñðåäñòâ, íåõâàòàåò" << prices[type - 1] - coins << "ìîíåò.\n";
+            std::cout << "\nНедостаточно средств, нехватает" << prices[type - 1] - coins << "монет.\n";
             state = STATES::WAIT;
             cancel();
             return;
         }
         if (state == STATES::CHECK) {
-            std::cout << "Ïðèãîòîâëåíèå çàêàçà...\n";
+            std::cout << "Приготовление заказа...\n";
             coins -= prices[type - 1];
             state = STATES::COOK;
             cook();
@@ -77,20 +77,20 @@ namespace UnitTests {
 
     void Automata::cook() {
         //std::this_thread::sleep_for(std::chrono::seconds(1));
-        std::cout << "Çàâåðøåíî 20%...\n";
+        std::cout << "Завершено 20%...\n";
         //std::this_thread::sleep_for(std::chrono::seconds(1));
-        std::cout << "Çàâåðøåíî 40%...\n";
+        std::cout << "Завершено 40%...\n";
         //std::this_thread::sleep_for(std::chrono::seconds(1));
-        std::cout << "Çàâåðøåíî 60%...\n";
+        std::cout << "Завершено 60%...\n";
         //std::this_thread::sleep_for(std::chrono::seconds(1));
-        std::cout << "Çàâåðøåíî 80%...\n";
+        std::cout << "Завершено 80%...\n";
         //std::this_thread::sleep_for(std::chrono::seconds(1));
-        std::cout << "Çàâåðøåíî 100%\n\n";
+        std::cout << "Завершено 100%\n\n";
         finish();
     }
 
     void Automata::finish() {
-        std::cout << "Êîôå ãîòîâ, ïîæàëóéñòà, çàáåðèòå...\n";
+        std::cout << "Кофе готов, пожалуйста, заберите...\n";
         if (state == STATES::COOK)
             state = STATES::WAIT;
     }

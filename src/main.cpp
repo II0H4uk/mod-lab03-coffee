@@ -1,4 +1,3 @@
-#include "pch.h"
 #include "Automata.h"
 #include <iostream>
 using std::cout;
@@ -9,20 +8,20 @@ namespace UnitTests {
     void main() {
         setlocale(LC_ALL, "RUSSIAN");
         Automata coffeeMachine = Automata();
-        cout << "Íàæàòèå íà êíîïêó âêëþ÷åíèÿ.\n";
+        cout << "ÃÃ Ã¦Ã Ã²Ã¨Ã¥ Ã­Ã  ÃªÃ­Ã®Ã¯ÃªÃ³ Ã¢ÃªÃ«Ã¾Ã·Ã¥Ã­Ã¨Ã¿.\n";
         coffeeMachine.on();
-        cout << "Ïîëîæèëè 80 ðóáëåé.\n";
+        cout << "ÃÃ®Ã«Ã®Ã¦Ã¨Ã«Ã¨ 80 Ã°Ã³Ã¡Ã«Ã¥Ã©.\n";
         coffeeMachine.coin(80);
-        cout << "Ïîëîæèëè åù¸ 20 ðóáëåé.\n";
+        cout << "ÃÃ®Ã«Ã®Ã¦Ã¨Ã«Ã¨ Ã¥Ã¹Â¸ 20 Ã°Ã³Ã¡Ã«Ã¥Ã©.\n";
         coffeeMachine.coin(20);
-        cout << "Ïîëó÷èëè ìåíþ.\n\n";
+        cout << "ÃÃ®Ã«Ã³Ã·Ã¨Ã«Ã¨ Ã¬Ã¥Ã­Ã¾.\n\n";
         vector<string> menu = coffeeMachine.getMenu();
         for (int i = 0; i < menu.size(); i++) {
             cout << i + 1 << ". " << menu[i] << "\n";
         }
-        cout << "\nÂûáðàëè 1 âàðèàíò.\n\n";
+        cout << "\nÃ‚Ã»Ã¡Ã°Ã Ã«Ã¨ 1 Ã¢Ã Ã°Ã¨Ã Ã­Ã².\n\n";
         coffeeMachine.choice(1);
-        cout << "Âûêëþ÷àåì êîôåìàøèíó.\n";
+        cout << "Ã‚Ã»ÃªÃ«Ã¾Ã·Ã Ã¥Ã¬ ÃªÃ®Ã´Ã¥Ã¬Ã Ã¸Ã¨Ã­Ã³.\n";
         coffeeMachine.off();
     }
 }

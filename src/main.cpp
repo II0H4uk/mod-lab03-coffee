@@ -8,20 +8,20 @@ namespace UnitTests {
     void main() {
         setlocale(LC_ALL, "RUSSIAN");
         Automata coffeeMachine = Automata();
-        cout << "Íàæàòèå íà êíîïêó âêëþ÷åíèÿ.\n";
+        cout << "Нажатие на кнопку включения.\n";
         coffeeMachine.on();
-        cout << "Ïîëîæèëè 80 ðóáëåé.\n";
+        cout << "Положили 80 рублей.\n";
         coffeeMachine.coin(80);
-        cout << "Ïîëîæèëè åù¸ 20 ðóáëåé.\n";
+        cout << "Положили ещё 20 рублей.\n";
         coffeeMachine.coin(20);
-        cout << "Ïîëó÷èëè ìåíþ.\n\n";
+        cout << "Получили меню.\n\n";
         vector<string> menu = coffeeMachine.getMenu();
         for (int i = 0; i < menu.size(); i++) {
             cout << i + 1 << ". " << menu[i] << "\n";
         }
-        cout << "\nÂûáðàëè 1 âàðèàíò.\n\n";
+        cout << "\nВыбрали 1 вариант.\n\n";
         coffeeMachine.choice(1);
-        cout << "Âûêëþ÷àåì êîôåìàøèíó.\n";
+        cout << "Выключаем кофемашину.\n";
         coffeeMachine.off();
     }
 }

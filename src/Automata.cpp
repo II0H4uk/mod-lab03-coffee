@@ -1,4 +1,3 @@
-#include "pch.h"
 #include "Automata.h"
 #include <string>
 #include <iostream>
@@ -12,7 +11,7 @@ namespace UnitTests {
 
     Automata::Automata() {
         coins = 0;
-        menu = { "Турецкий кофе", "Американо", "Эспрессо", "Лаатте", "Капучино", "Маккиато", "Флэт уайт", "Мокка", "Френч пресс", "Айриш кофе" };
+        menu = { "Г’ГіГ°ГҐГ¶ГЄГЁГ© ГЄГ®ГґГҐ", "ГЂГ¬ГҐГ°ГЁГЄГ Г­Г®", "ГќГ±ГЇГ°ГҐГ±Г±Г®", "Г‹Г Г ГІГІГҐ", "ГЉГ ГЇГіГ·ГЁГ­Г®", "ГЊГ ГЄГЄГЁГ ГІГ®", "Г”Г«ГЅГІ ГіГ Г©ГІ", "ГЊГ®ГЄГЄГ ", "Г”Г°ГҐГ­Г· ГЇГ°ГҐГ±Г±", "ГЂГ©Г°ГЁГё ГЄГ®ГґГҐ" };
         prices = { 100, 150, 200, 250, 300, 350, 400, 450, 500, 550 };
         state = STATES::OFF;
     }
@@ -20,14 +19,14 @@ namespace UnitTests {
     void Automata::on() {
         if (state == STATES::OFF) {
             state = STATES::WAIT;
-            cout << "Кофемашина включена...\n";
+            cout << "ГЉГ®ГґГҐГ¬Г ГёГЁГ­Г  ГўГЄГ«ГѕГ·ГҐГ­Г ...\n";
         }
     }
 
     void Automata::off() {
         if (state == STATES::WAIT) {
             state = STATES::OFF;
-            cout << "Кофемашина выключена...\n";
+            cout << "ГЉГ®ГґГҐГ¬Г ГёГЁГ­Г  ГўГ»ГЄГ«ГѕГ·ГҐГ­Г ...\n";
         }
     }
 
@@ -58,13 +57,13 @@ namespace UnitTests {
 
     void Automata::check(int type) {
         if (coins < prices[type - 1] && state == STATES::CHECK) {
-            std::cout << "\nНедостаточно средств, нехватает" << prices[type - 1] - coins << "монет.\n";
+            std::cout << "\nГЌГҐГ¤Г®Г±ГІГ ГІГ®Г·Г­Г® Г±Г°ГҐГ¤Г±ГІГў, Г­ГҐГµГўГ ГІГ ГҐГІ" << prices[type - 1] - coins << "Г¬Г®Г­ГҐГІ.\n";
             state = STATES::WAIT;
             cancel();
             return;
         }
         if (state == STATES::CHECK) {
-            std::cout << "Приготовление заказа...\n";
+            std::cout << "ГЏГ°ГЁГЈГ®ГІГ®ГўГ«ГҐГ­ГЁГҐ Г§Г ГЄГ Г§Г ...\n";
             coins -= prices[type - 1];
             state = STATES::COOK;
             cook();
@@ -78,20 +77,20 @@ namespace UnitTests {
 
     void Automata::cook() {
         //std::this_thread::sleep_for(std::chrono::seconds(1));
-        std::cout << "Завершено 20%...\n";
+        std::cout << "Г‡Г ГўГҐГ°ГёГҐГ­Г® 20%...\n";
         //std::this_thread::sleep_for(std::chrono::seconds(1));
-        std::cout << "Завершено 40%...\n";
+        std::cout << "Г‡Г ГўГҐГ°ГёГҐГ­Г® 40%...\n";
         //std::this_thread::sleep_for(std::chrono::seconds(1));
-        std::cout << "Завершено 60%...\n";
+        std::cout << "Г‡Г ГўГҐГ°ГёГҐГ­Г® 60%...\n";
         //std::this_thread::sleep_for(std::chrono::seconds(1));
-        std::cout << "Завершено 80%...\n";
+        std::cout << "Г‡Г ГўГҐГ°ГёГҐГ­Г® 80%...\n";
         //std::this_thread::sleep_for(std::chrono::seconds(1));
-        std::cout << "Завершено 100%\n\n";
+        std::cout << "Г‡Г ГўГҐГ°ГёГҐГ­Г® 100%\n\n";
         finish();
     }
 
     void Automata::finish() {
-        std::cout << "Кофе готов, пожалуйста, заберите...\n";
+        std::cout << "ГЉГ®ГґГҐ ГЈГ®ГІГ®Гў, ГЇГ®Г¦Г Г«ГіГ©Г±ГІГ , Г§Г ГЎГҐГ°ГЁГІГҐ...\n";
         if (state == STATES::COOK)
             state = STATES::WAIT;
     }

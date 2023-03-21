@@ -5,7 +5,7 @@
 using std::cout;
 using std::cin;
 
-void main() {
+int main() {
     setlocale(LC_ALL, "RUSSIAN");
     Automata coffeeMachine = Automata();
     cout << "Нажатие на кнопку включения.\n";
@@ -23,4 +23,5 @@ void main() {
     coffeeMachine.choice(1);
     cout << "Выключаем кофемашину.\n";
     coffeeMachine.off();
+    return 0;
 }

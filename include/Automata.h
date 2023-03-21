@@ -1,3 +1,5 @@
+// Copyright 2022 UNN-IASR
+
 #pragma once
 #include <string>
 #include <iostream>
